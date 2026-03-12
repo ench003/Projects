@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    networks:
+      - dockernet
+    volumes:
+      - ./:/usr/share/nginx/html
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 123
+    networks:
+      - dockernet
+
+  admin:
+    image: adminer
+    ports:
+      - "8081:8080"
+    networks:
+      - dockernet
+
+networks:
+  dockernet:
