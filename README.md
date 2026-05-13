@@ -51,6 +51,17 @@ cd Log_Watcher
 
 ---
 
+## 4. Мониторинг сервера и nginx (Prometheus + Grafana)
+
+Настроен сбор метрик с VPS:
+- `node_exporter` - ресурсы сервера (CPU, память, диск, сеть)
+- `nginx_exporter` - метрики веб-сервера (активные соединения, принятые/обработанные)
+Данные поступают в Prometheus, визуализированы в Grafana.
+
+![Дашборд](./screenshots/grafana.jng)
+
+---
+
 ## Контакты
 
 GitHub: ench003
