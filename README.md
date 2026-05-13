@@ -58,7 +58,7 @@ cd Log_Watcher
 - `nginx_exporter` - метрики веб-сервера (активные соединения, принятые/обработанные)
 Данные поступают в Prometheus, визуализированы в Grafana.
 
-![Дашборд](./screenshots/grafana.jng)
+![Скриншот дашборда](https://github.com/ench003/Projects/blob/main/screenshots/grafana.jpg)
 
 ---
 
