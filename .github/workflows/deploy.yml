@@ -16,7 +16,7 @@ jobs:
         with:
           host: 89.169.156.59
           username: serbia01
-          password: ${{ secrets.VPS_PASSWORD }}
+          key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             cd ~/projects
             git pull
