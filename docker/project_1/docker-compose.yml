@@ -22,5 +22,14 @@ services:
     networks:
       - dockernet
 
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:1.5.1
+    command:
+      - --nginx.scrape-uri=http://web:8080/stub_status
+    ports:
+      - "9113:9113"
+    networks:
+      - dockernet
+
 networks:
   dockernet:
