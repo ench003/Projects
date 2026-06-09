@@ -1,7 +1,7 @@
 # system-info.sh - скрипт для сбора информации о системе
 # Собирает информацию о диске, памяти, времени работы
 
-logs="$HOME/sysinfo-project/sysinfo.log"
+logs="$HOME/projects/sysinfo-project/sysinfo.log"
 echo "===== Отчет: $(date) =====" >> "$logs"
 echo >> "$logs"
 echo "--- Диск -----" >> "$logs"
