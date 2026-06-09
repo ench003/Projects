@@ -58,6 +58,7 @@ cd projects/Log_Watcher
 
 Запуск:
 cd projects/ansible_project
+Вставить данные в inventory.ini без <>
 ansible-playbook -i inventory.ini deploy.yml
 
 Что делает:
