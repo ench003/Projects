@@ -1,0 +1,38 @@
+---
+- name: установка docker и docker compose plugin на VPS
+  hosts: webs
+  become: yes
+  tasks:
+    - name: обновление пакетов
+      shell: apt update && apt upgrade -y
+
+    - name: установка git
+      apt:
+        name: git
+        state: present
+
+    - name: установка docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: установка docker compose
+      apt:
+        name: docker-compose-plugin
+        state: present
+
+- name: деплой проекта
+  hosts: webs
+  tasks:
+    - name: создание папки projects
+      file:
+        path: ~/projects
+        state: directory
+
+    - name: перенос проектов
+      git:
+        repo: https://github.com/ench003/Projects.git
+        dest: ~/projects
+
+    - name: запуск контейнеров
+      shell: cd ~/projects/docker/project_1 && docker compose up -d
