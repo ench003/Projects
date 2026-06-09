@@ -12,7 +12,7 @@
 
 Запуск:
 cd projects/docker/project_1
-docker-compose up -d
+docker compose up -d
 
 Доступ:
 - Сайт: http://<айпишник VPS или если с локалки, то localhost>:8080  
@@ -51,6 +51,19 @@ cd projects/Log_Watcher
 Результат записывается в файл logs.log в папке со скриптом
 
 Так же в скрипте можно убрать while и запускать его через cron, чтобы он не работал на постоянке, а запускался каждую минуту и писал в логи отчет
+
+## ansible_project
+
+Плейбук для деплоя всего проекта на чистом VPS.
+
+Запуск:
+cd projects/ansible_project
+ansible-playbook -i inventory.ini deploy.yml
+
+Что делает:
+- устанавливает Git, Docker и Docker Compose
+- клонирует репозиторий в ~/projects
+- выполняет docker compose up -d
 
 ---
 
