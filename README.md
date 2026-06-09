@@ -4,21 +4,23 @@
 
 ## docker/project_1
 
-В проекте поднимаются три контейнера:
-веб сервер (nginx)
-база данных (postgres)
-админка для базы (adminer) 
+В проекте поднимаются 4 контейнера:
+- веб-сервер (nginx)
+- база данных (postgres)
+- админка для базы (adminer)
+- сбор метрик nginx для Prometheus (nginx-exporter)
 
-Запуск:  
-cd docker/project_1  
-docker-compose up -d  
+Запуск:
+cd projects/docker/project_1
+docker-compose up -d
 
-Доступ:  
-Сайт: http://localhost:8080  
-Adminer: http://localhost:8081  
-Сервер: db  
-Пользователь: postgres  
-пароль: задаётся в docker-compose.yml
+Доступ:
+- Сайт: http://<айпишник VPS или если с локалки, то localhost>:8080  
+- Adminer: http://<айпишник VPS или если с локалки, то localhost>:8081  
+- Метрики nginx-exporter: http://<айпишник VPS или если с локалки, то localhost>:9113  
+- Сервер БД: db  
+- Пользователь БД: postgres  
+- Пароль: задаётся в docker-compose.yml в POSTGRES_PASSWORD
 
 ---
 
@@ -30,10 +32,10 @@ Adminer: http://localhost:8081
 - как долго работает сервер
 
 Запуск:
-cd sysinfo-project
-./sysinfo.sh
+cd projects/sysinfo-project
+./system-info.sh
 
-Результат записывается в файл ~/sysinfo.log
+Результат записывается в файл sysinfo.log в папке со скриптом
 
 ---
 
@@ -41,24 +43,13 @@ cd sysinfo-project
 Скрипт каждую минуту проверяет доступность сайта http://localhost:8080
 
 Запуск:
-cd Log_Watcher
+cd projects/Log_Watcher
 ./log_watcher.sh
 
 Скрипт работает вручную, для остановки нажать Ctrl+C
 Результат записывается в файл logs.log в папке со скриптом
 
 Так же в скрипте можно убрать while и запускать его через cron, чтобы он не работал на постоянке, а запускался каждую минуту и писал в логи отчет
-
----
-
-## 4. Мониторинг сервера и nginx (Prometheus + Grafana)
-
-Настроен сбор метрик с VPS:
-- `node_exporter` - ресурсы сервера (CPU, память, диск, сеть)
-- `nginx_exporter` - метрики веб-сервера (активные соединения, принятые/обработанные)
-Данные поступают в Prometheus, визуализированы в Grafana.
-
-![Скриншот дашборда](https://github.com/ench003/Projects/blob/main/screenshots/grafana.jpg)
 
 ---
 
