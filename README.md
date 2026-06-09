@@ -17,7 +17,7 @@ docker-compose up -d
 Доступ:
 - Сайт: http://<айпишник VPS или если с локалки, то localhost>:8080  
 - Adminer: http://<айпишник VPS или если с локалки, то localhost>:8081  
-- Метрики nginx-exporter: http://<айпишник VPS или если с локалки, то localhost>:9113  
+- Метрики nginx-exporter: http://<ip VPS или если с локалки, то localhost>:9113  
 - Сервер БД: db  
 - Пользователь БД: postgres  
 - Пароль: задаётся в docker-compose.yml в POSTGRES_PASSWORD
@@ -41,6 +41,7 @@ cd projects/sysinfo-project
 
 ## Log_Watcher
 Скрипт каждую минуту проверяет доступность сайта http://localhost:8080
+localhost если запуск на локалке, если на VPS, то <ip VPS> и в файле log_watcher.sh изменить url
 
 Запуск:
 cd projects/Log_Watcher
