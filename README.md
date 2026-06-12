@@ -52,6 +52,8 @@ cd projects/Log_Watcher
 
 Так же в скрипте можно убрать while и запускать его через cron, чтобы он не работал на постоянке, а запускался каждую минуту и писал в логи отчет
 
+---
+
 ## ansible_project
 
 Плейбук для деплоя всего проекта на чистом VPS.
@@ -65,6 +67,25 @@ ansible-playbook -i inventory.ini deploy.yml
 - устанавливает Git, Docker и Docker Compose
 - клонирует репозиторий в ~/projects
 - выполняет docker compose up -d
+
+---
+
+## CI/CD (GitHub Actions)
+Авто деплой на VPS при пуше в ветку main.
+Файл: .github/workflows/deploy.yml
+
+Что делает:
+- проверяет docker-compose.yml
+- запускает тестовые контейнеры и проверяет доступность сайта
+- подключается по SSH к VPS
+- обновляет код
+- пересобирает и перезапускает контейнеры
+- чистит старые образы
+
+Секреты GitHub (Settings - Secrets and variables - Actions):
+- VPS_HOST - IP сервера
+- VPS_USER - имя пользователя
+- VPS_SSH_KEY - приватный SSH-ключ
 
 ---
 
