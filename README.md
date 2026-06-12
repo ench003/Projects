@@ -75,6 +75,7 @@ ansible-playbook -i inventory.ini deploy.yml
 Файл: .github/workflows/deploy.yml
 
 Что делает:
+- добавляет возможность запустить пайплайн вручную во вкладке Actions 
 - проверяет docker-compose.yml
 - запускает тестовые контейнеры и проверяет доступность сайта
 - подключается по SSH к VPS
