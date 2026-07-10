@@ -21,7 +21,8 @@ jobs:
           cd docker/project_1
           docker compose up -d
           sleep 10
-          curl --fail http://localhost:8080
+          curl --fail http://localhost:8081
+          curl --fail http://localhost:8082
 
       - name: Очистка
         if: always()
