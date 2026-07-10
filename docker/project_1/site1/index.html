@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ench003 · devops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #ddd;
+            font-family: 'Space Mono', monospace;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: #111111;
+            border: 3px solid #e05a00;
+            padding: 44px 48px;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: 60px;
+            height: 60px;
+            border-top: 6px solid #e05a00;
+            border-left: 6px solid #e05a00;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: -3px;
+            width: 60px;
+            height: 60px;
+            border-bottom: 6px solid #e05a00;
+            border-right: 6px solid #e05a00;
+        }
+
+        .header {
+            border-bottom: 2px solid #e05a00;
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
+
+        .nick {
+            font-size: 52px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .nick span {
+            color: #e05a00;
+        }
+
+        .title {
+            font-size: 18px;
+            color: #e05a00;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        .about {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #bbb;
+            padding: 16px 0;
+            border-bottom: 1px solid #222;
+            margin-bottom: 24px;
+        }
+
+        .about strong {
+            color: #fff;
+        }
+
+        .section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #222;
+        }
+
+        .stack-item {
+            background: #1a1a1a;
+            color: #e05a00;
+            padding: 6px 16px;
+            font-size: 13px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .goals {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #bbb;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #222;
+        }
+
+        .goals strong {
+            color: #fff;
+        }
+
+        .contacts {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #bbb;
+        }
+
+        .contacts a {
+            color: #e05a00;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid #2a2a2a;
+            padding-bottom: 2px;
+            transition: 0.2s;
+        }
+
+        .contacts a:hover {
+            border-bottom-color: #e05a00;
+        }
+
+        .footer {
+            margin-top: 28px;
+            padding-top: 16px;
+            border-top: 1px solid #1a1a1a;
+            font-size: 13px;
+            color: #444;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .footer a {
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .footer a:hover {
+            color: #e05a00;
+            border-bottom-color: #e05a00;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 28px 20px;
+            }
+            .nick {
+                font-size: 38px;
+            }
+            .title {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <div class="header">
+            <div class="nick"><span>@</span>ench003</div>
+            <div class="title">DevOps-инженер (стажёр)</div>
+        </div>
+
+        <div class="about">
+            Здравствуйте, меня зовут <strong>ench003</strong> и мне всего 18 лет. Уже в таком возрасте я знаю, чем хочу заниматься, а именно — DevOps инженерингом.<br /><br />
+            В 18 лет большинство выбирает профессию. Я уже в ней и не жду, пока вырасту, чтобы начать. Уже сейчас администрирую Linux, работаю с контейнерами, настраиваю мониторинг и CI/CD. Ищу место, где мои навыки будут полезны, а я смогу расти.
+        </div>
+
+        <div class="section-title">● стек</div>
+        <div class="stack">
+            <span class="stack-item">Linux</span>
+            <span class="stack-item">Docker</span>
+            <span class="stack-item">Ansible</span>
+            <span class="stack-item">Git</span>
+            <span class="stack-item">CI/CD (GitHub Actions)</span>
+            <span class="stack-item">Bash</span>
+            <span class="stack-item">PostgreSQL</span>
+            <span class="stack-item">SQL</span>
+            <span class="stack-item">Zabbix</span>
+            <span class="stack-item">Prometheus</span>
+            <span class="stack-item">Grafana</span>
+            <span class="stack-item">systemd</span>
+            <span class="stack-item">Сети (TCP/IP, DNS, HTTP/HTTPS)</span>
+        </div>
+
+        <div class="section-title">● цели</div>
+        <div class="goals">
+            Хочу развиваться в DevOps, работать с инфраструктурой, автоматизацией и высоконагруженными системами. Ищу стажировку, где смогу применить свои навыки и учиться у опытных инженеров.
+        </div>
+
+        <div class="contacts">
+            <span style="color:#666;">Контакты</span>
+            <a href="https://github.com/ench003" target="_blank">github.com/ench003</a>
+        </div>
+
+        <div class="footer">
+            <span>#Linux #Docker #Ansible #DevOps</span>
+            <span><a href="https://github.com/ench003" target="_blank">github</a> · 2026</span>
+        </div>
+
+    </div>
+
+</body>
+</html>

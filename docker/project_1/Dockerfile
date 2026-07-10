@@ -1,3 +1,16 @@
 FROM nginx
-COPY index.html /usr/share/nginx/html/index.html
-RUN echo "server { listen 80; location / { root /usr/share/nginx/html; } location /stub_status { stub_status; } }" > /etc/nginx/conf.d/default.conf
+LABEL version="1.1"
+LABEL description="Два сайта в одном проекте"
+
+WORKDIR /other
+
+COPY site1 /usr/share/nginx/html/site1
+COPY site2 /usr/share/nginx/html/site2
+COPY welcome.sh /other/welcome.sh
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+RUN chmod +x /other/welcome.sh
+RUN echo "/other/welcome.sh" >> /root/.bashrc
+RUN apt update && apt install -y curl
+
+EXPOSE 80
